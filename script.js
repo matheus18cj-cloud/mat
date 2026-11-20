@@ -28,7 +28,7 @@ document.addEventListener('keydown', event => {
     menu.focus();
   }
 });
-window.matchMedia('(min-width: 651px)').addEventListener('change', event => {
+window.matchMedia('(min-width: 901px)').addEventListener('change', event => {
   if (event.matches) closeMenu();
 });
 
@@ -127,7 +127,7 @@ dialog.addEventListener('close', () => {
 const art = document.querySelector('.hero-art');
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   art.addEventListener('pointermove', event => {
-    if (reducedMotion.matches) return;
+    if (reducedMotion.matches || window.innerWidth <= 900) return;
     const bounds = art.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / bounds.width - 0.5;
     const y = (event.clientY - bounds.top) / bounds.height - 0.5;
@@ -135,3 +135,7 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   });
   art.addEventListener('pointerleave', () => { art.style.transform = ''; });
 }
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 900) art.style.transform = '';
+});
