@@ -1,0 +1,11 @@
+{
+  "name": "matdev-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfólio pessoal de matdev, desenvolvido com HTML, CSS e JavaScript.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check script.js && node --check server.mjs"
+  }
+}
